@@ -150,6 +150,7 @@ void PrimaryGen::GeneratePrimaries(G4Event* anEvent)
     map<G4double, G4double>::iterator it=ew->lower_bound(rand);
 
     gun->SetParticleEnergy(it->second*MeV);
+    gun->SetParticleTime(0*ns);
 #endif
 
     //set the cylinder beam particle distribution

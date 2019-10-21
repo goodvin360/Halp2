@@ -17,7 +17,9 @@ void StepAct::UserSteppingAction(const G4Step *aStep)
 
     if ((aStep->GetTrack()->GetVolume()->GetLogicalVolume()->GetName() =="Body") &&
         (aStep->GetTrack()->GetDynamicParticle()->GetParticleDefinition()->GetParticleName()=="neutron")&&
-            (aStep->GetTrack()->GetTrackID()==1))
+            (aStep->GetTrack()->GetTrackID()==1)&&
+            (aStep->GetTrack()->GetKineticEnergy()<=0.000000025)&&
+            (aStep->GetTrack()->GetKineticEnergy()!=0))
 
     {
         event->AddEnDep1_1(aStep->GetTrack()->GetKineticEnergy());
@@ -27,9 +29,8 @@ void StepAct::UserSteppingAction(const G4Step *aStep)
         G4cout << endl << "Kinetic Energy is " << aStep->GetTrack()->GetDynamicParticle()->GetKineticEnergy() ;
         G4cout << endl << "Velocity is " << aStep->GetTrack()->GetVelocity() ;
         G4cout << endl << "Step lenght is " << aStep->GetTrack()->GetStepLength();
-        G4cout << endl << "Proper Time is " << aStep->GetTrack()->GetDynamicParticle()->GetProperTime() ;
-        G4cout << endl << "Global Time is " << aStep->GetTrack()->GetGlobalTime();
-        G4cout << endl << "Delta Time is " << aStep->GetDeltaTime() ;
+        G4cout << endl << "Global Time is " << aStep->GetTrack()->GetGlobalTime()/1E9;
+        G4cout << endl << "Delta Time is " << aStep->GetDeltaTime()/1E9 ;
         G4cout << endl;
     };
 

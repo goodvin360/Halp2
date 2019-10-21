@@ -45,9 +45,10 @@ logicWorld->SetVisAttributes(G4VisAttributes::Invisible);
     //define materials
 
     G4Material*ferrum = nist->FindOrBuildMaterial("G4_Fe");
-//    G4Material*carbon = nist->FindOrBuildMaterial("G4_C");
-//    G4Material*poly = nist->FindOrBuildMaterial("G4_POLYETHELEN");
+    G4Material*carbon = nist->FindOrBuildMaterial("G4_C");
+    G4Material*poly = nist->FindOrBuildMaterial("G4_POLYETHYLENE");
     G4Material*void_mat =nist->FindOrBuildMaterial("G4_Galactic");
+    G4Material*water = nist->FindOrBuildMaterial("G4_WATER");
 
 
 
