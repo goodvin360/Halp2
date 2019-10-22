@@ -37,32 +37,32 @@ void RunAct::BeginOfRunAction(const G4Run *aRun)
 
     result1->clear();
     for (int i=0; i <nStep; i++)
-        result1->insert(std::pair<G4double, G4int> (i *Emax / nStep, 0));
+        result1->insert(std::pair<G4double, G4int> (i *Tmax / nStep, 0));
 
     result1_1->clear();
     for (int i=0; i <nStep; i++)
-        result1_1->insert(std::pair<G4double, G4int> (i *Emax / nStep, 0));
+        result1_1->insert(std::pair<G4double, G4int> (i *Tmax / nStep, 0));
 
     result2->clear();
     for (int i=0; i <nStep; i++)
-        result2->insert(std::pair<G4double, G4int> (i *Emax / nStep, 0));
+        result2->insert(std::pair<G4double, G4int> (i *Tmax / nStep, 0));
 
 }
 
 
 void RunAct::EndOfRunAction(const G4Run *aRun)
 {
-    fstream fout1("/mnt/hgfs/VMplayer/Halp2/Source.txt", ios::out);
+    fstream fout1("/mnt/hgfs/VMplayer/Halp2/empty1.txt", ios::out);
     for (auto it1: *result1)
         fout1 << it1.first << " " << it1.second << '\n';
     fout1.close();
 
-    fstream fout1_1("/mnt/hgfs/VMplayer/Halp2/Det_GF.txt", ios::out);
+    fstream fout1_1("/mnt/hgfs/VMplayer/Halp2/t_diagram.txt", ios::out);
     for (auto it1_1: *result1_1)
         fout1_1 << it1_1.first << " " << it1_1.second << '\n';
     fout1_1.close();
 
-    fstream fout2("/mnt/hgfs/VMplayer/Halp2/Detector.txt", ios::out);
+    fstream fout2("/mnt/hgfs/VMplayer/Halp2/empty2.txt", ios::out);
     for (auto it2: *result2)
         fout2 << it2.first << " " << it2.second << '\n';
     fout2.close();

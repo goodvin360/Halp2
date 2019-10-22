@@ -18,7 +18,7 @@ G4VPhysicalVolume* DetGeometry::Construct(){
 
     G4double Size = 1*m;
 
-    WorldX = WorldY = WorldZ = 1*Size;
+    WorldX = WorldY = WorldZ = 10*Size;
 
     G4Material* world_mat = nist->FindOrBuildMaterial("G4_AIR");
 

@@ -24,6 +24,7 @@ G4Loader::G4Loader(int argc, char** argv){
 
 
     auto Bert_Phys = new QGSP_BERT_HP;
+//    auto Bert_Phys = new QBBC;
 //    auto Bert_Phys = new QGSP_BIC_AllHP;
     Bert_Phys->RegisterPhysics(new G4RadioactiveDecayPhysics);
     runManager->SetUserInitialization(Bert_Phys);

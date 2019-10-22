@@ -30,8 +30,8 @@ public:
 
     //for ING_07T
 
-    int nStep = 20000;
-    G4double Emax = 20.0*MeV;
+    int nStep = 10000;
+    G4double Tmax = 1000;
 
 
 private:
