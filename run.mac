@@ -1,4 +1,5 @@
-/my_dir1/SetParticleCounts 10000000
-/my_dir2/SetCountsStep 10000
-/run/beamOn 10000000
+/material/g4/printMaterial
+/my_dir1/SetParticleCounts 100000
+/my_dir2/SetCountsStep 1000
+/run/beamOn 100000
 

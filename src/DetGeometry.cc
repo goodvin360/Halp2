@@ -47,7 +47,6 @@ logicWorld->SetVisAttributes(G4VisAttributes::Invisible);
     G4Material*ferrum = nist->FindOrBuildMaterial("G4_Fe");
     G4Material*carbon = nist->FindOrBuildMaterial("G4_C");
     G4Material*poly = nist->FindOrBuildMaterial("G4_POLYETHYLENE");
-    G4Material*void_mat =nist->FindOrBuildMaterial("G4_Galactic");
     G4Material*water = nist->FindOrBuildMaterial("G4_WATER");
 
 
@@ -58,7 +57,7 @@ logicWorld->SetVisAttributes(G4VisAttributes::Invisible);
 
     G4Box*body = new G4Box("Body", WorldX/2-1, WorldY/2-1, WorldZ/2-1);
 
-    G4LogicalVolume*logic_bdy = new G4LogicalVolume(body, ferrum, "Body");
+    G4LogicalVolume*logic_bdy = new G4LogicalVolume(body, carbon, "Body");
 
     G4VisAttributes*logic_Vis_bdy = new G4VisAttributes(G4Colour(1.0, 0.0, 0.0));
 

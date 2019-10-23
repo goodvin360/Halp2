@@ -56,4 +56,5 @@
 /vis/viewer/set/autoRefresh true
 /tracking/storeTrajectory 1
 /vis/scene/add/scale
+/material/g4/printMaterial
 

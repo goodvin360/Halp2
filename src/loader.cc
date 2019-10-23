@@ -6,6 +6,8 @@
 #include "G4HadronFissionProcess.hh"
 #include "QGSP_BIC_AllHP.hh"
 #include "QGSP_BIC_HP.hh"
+#include "ShieldingLEND.hh"
+#include "Shielding.hh"
 
 G4Loader::G4Loader(int argc, char** argv){
     G4Random::setTheEngine(new CLHEP::RanecuEngine);
@@ -24,6 +26,7 @@ G4Loader::G4Loader(int argc, char** argv){
 
 
     auto Bert_Phys = new QGSP_BERT_HP;
+//    auto Bert_Phys = new ShieldingLEND;
 //    auto Bert_Phys = new QBBC;
 //    auto Bert_Phys = new QGSP_BIC_AllHP;
     Bert_Phys->RegisterPhysics(new G4RadioactiveDecayPhysics);

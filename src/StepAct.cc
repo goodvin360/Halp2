@@ -15,10 +15,21 @@ void StepAct::UserSteppingAction(const G4Step *aStep)
 
 //    G4Track*theTrack = aStep->GetTrack();
 
-    if (aStep->GetTrack()->GetTrackID()!=1)
+
+    if ((aStep->GetTrack()->GetVolume()->GetLogicalVolume()->GetName() =="Body") &&
+        (aStep->GetTrack()->GetDynamicParticle()->GetParticleDefinition()->GetParticleName()=="neutron")&&
+        (aStep->GetTrack()->GetTrackID()==1))
+
+
+    {
+        event->AddEnDep1(aStep->GetTrack()->GetKineticEnergy()*1E9);
+
+    }
+
+    /*if ((aStep->GetTrack()->GetTrackID()!=1))
     {
         aStep->GetTrack()->SetTrackStatus(fStopAndKill);
-    }
+    }*/
 
     if ((aStep->GetTrack()->GetVolume()->GetLogicalVolume()->GetName() =="Body") &&
         (aStep->GetTrack()->GetDynamicParticle()->GetParticleDefinition()->GetParticleName()=="neutron")&&
@@ -30,6 +41,7 @@ void StepAct::UserSteppingAction(const G4Step *aStep)
 
     {
         event->AddEnDep1_1(aStep->GetTrack()->GetGlobalTime()/1E3);
+        event->AddEnDep2(aStep->GetTrack()->GetGlobalTime()/1E3);
 
         /*G4cout <<endl;
         G4cout << endl << "Current Step number is " << aStep->GetTrack()->GetCurrentStepNumber();
@@ -42,6 +54,5 @@ void StepAct::UserSteppingAction(const G4Step *aStep)
 
         aStep->GetTrack()->SetTrackStatus(fStopAndKill);
     }
-
 }
 

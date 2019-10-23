@@ -32,6 +32,8 @@ public:
 
     int nStep = 10000;
     G4double Tmax = 1000;
+    G4double Emax = 10;
+    int nStepLn = 209;
 
 
 private:

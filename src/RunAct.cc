@@ -34,10 +34,15 @@ RunAct::~RunAct()
 void RunAct::BeginOfRunAction(const G4Run *aRun)
 {
 
-
-    result1->clear();
+//lin scale
+    /*result1->clear();
     for (int i=0; i <nStep; i++)
-        result1->insert(std::pair<G4double, G4int> (i *Tmax / nStep, 0));
+        result1->insert(std::pair<G4double, G4int> (i *Emax / nStep, 0));*/
+
+//log scale
+    result1->clear();
+    for (int i=0; i <nStepLn; i++)
+        result1->insert(std::pair<G4double, G4int> (exp(0.1*i), 0));
 
     result1_1->clear();
     for (int i=0; i <nStep; i++)
@@ -52,7 +57,7 @@ void RunAct::BeginOfRunAction(const G4Run *aRun)
 
 void RunAct::EndOfRunAction(const G4Run *aRun)
 {
-    fstream fout1("/mnt/hgfs/VMplayer/Halp2/empty1.txt", ios::out);
+    fstream fout1("/mnt/hgfs/VMplayer/Halp2/E_diagram.txt", ios::out);
     for (auto it1: *result1)
         fout1 << it1.first << " " << it1.second << '\n';
     fout1.close();
@@ -62,7 +67,7 @@ void RunAct::EndOfRunAction(const G4Run *aRun)
         fout1_1 << it1_1.first << " " << it1_1.second << '\n';
     fout1_1.close();
 
-    fstream fout2("/mnt/hgfs/VMplayer/Halp2/empty2.txt", ios::out);
+    fstream fout2("/mnt/hgfs/VMplayer/Halp2/t_daigram_new.txt", ios::out);
     for (auto it2: *result2)
         fout2 << it2.first << " " << it2.second << '\n';
     fout2.close();
